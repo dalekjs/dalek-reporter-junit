@@ -17,7 +17,7 @@ dalek-reporter-junit
 ## Ressources
 
 [API Docs](http://dalekjs.com/package/dalek-reporter-junit/master/api/index.html) -
-[Trello](https://trello.com/b/OU9sxdtw/dalek-reporter-junit) -
+[Trello](https://trello.com/b/dKvjVE0x/dalek-reporter-junit) -
 [Code coverage](http://dalekjs.com/package/dalek-reporter-junit/master/coverage/index.html) -
 [Code complexity](http://dalekjs.com/package/dalek-reporter-junit/master/complexity/index.html) -
 [Contributing](https://github.com/dalekjs/dalek-reporter-junit/blob/master/CONTRIBUTING.md) -
