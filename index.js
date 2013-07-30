@@ -29,14 +29,52 @@ var fs = require('fs');
 var path = require('path');
 var jsonxml = require('jsontoxml');
 
+// int. global
 var reporter = null;
 
 /**
- * jUnit reporter
+ * The jUnit reporter can produce a jUnit compatible file with the results of your testrun,
+ * this reporter enables you to use daleks testresults within a CI environment like Jenkins.
+ *
+ * The reporter can be installed with the following command:
+ * ```
+ * $ npm install dalek-reporter-junit --save-dev
+ * ```
+ *
+ * The file will follow the jUnit XML format:
+ *
+ * ```html
+ * <?xml version="1.0" encoding="utf-8"?>
+ * <resource name="DalekJSTest">
+ *     <testsuite start="1375125067" name="Click - DalekJS guinea pig [Phantomjs]" end="1375125067" totalTests="0">
+ *         <testcase start="1375125067" name="Can click a select option (OK, jQuery style, no message)" end="null" result="null">
+ *             <variation start="1375125067" name="val" end="1375125067">
+ *                 <severity>pass</severity>
+ *                 <description>&lt;![CDATA[David is the favourite]]&gt;</description>
+ *                 <resource>DalekJSTest</resource>
+ *             </variation>
+ *             <variation start="1375125067" name="val" end="null">
+ *                 <severity>pass</severity>
+ *                 <description>&lt;![CDATA[Matt is now my favourite, bow ties are cool]]&gt;</description>
+ *                 <resource>DalekJSTest</resource>
+ *             </variation>
+ *         </testcase>
+ *     </testsuite>
+ *  </resource>
+ * ```
+ *
+ * By default the file will be written to `report/dalek.xml`,
+ * you can change this by adding a config option to the your Dalekfile
+ *
+ * ```javascript
+ * "junit-reporter": {
+ *   "dest": "your/folder/your_file.xml"
+ * }
+ * ```
  *
  * @class Reporter
  * @constructor
- * @part junit
+ * @part JUnit
  * @api
  */
 
