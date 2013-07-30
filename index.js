@@ -37,7 +37,8 @@ var reporter = null;
  * this reporter enables you to use daleks testresults within a CI environment like Jenkins.
  *
  * The reporter can be installed with the following command:
- * ```
+ *
+ * ```bash
  * $ npm install dalek-reporter-junit --save-dev
  * ```
  *
@@ -46,14 +47,14 @@ var reporter = null;
  * ```html
  * <?xml version="1.0" encoding="utf-8"?>
  * <resource name="DalekJSTest">
- *     <testsuite start="1375125067" name="Click - DalekJS guinea pig [Phantomjs]" end="1375125067" totalTests="0">
- *         <testcase start="1375125067" name="Can click a select option (OK, jQuery style, no message)" end="null" result="null">
+ *     <testsuite start="1375125067" name="Click - DalekJS guinea pig [Phantomjs]" end="1375125067" totalTests="1">
+ *         <testcase start="1375125067" name="Can click a select option (OK, jQuery style, no message)" end="1375125067" result="pass">
  *             <variation start="1375125067" name="val" end="1375125067">
  *                 <severity>pass</severity>
  *                 <description>&lt;![CDATA[David is the favourite]]&gt;</description>
  *                 <resource>DalekJSTest</resource>
  *             </variation>
- *             <variation start="1375125067" name="val" end="null">
+ *             <variation start="1375125067" name="val" end="1375125067">
  *                 <severity>pass</severity>
  *                 <description>&lt;![CDATA[Matt is now my favourite, bow ties are cool]]&gt;</description>
  *                 <resource>DalekJSTest</resource>
@@ -70,6 +71,19 @@ var reporter = null;
  * "junit-reporter": {
  *   "dest": "your/folder/your_file.xml"
  * }
+ * ```
+ *
+ * If you would like to use the reporter (in addition to the std. console reporter),
+ * you can start dalek with a special command line argument
+ *
+ * ```bash
+ * $ dalek your_test.js -r console,junit
+ * ```
+ *
+ * or you can add it to your Dalekfile
+ *
+ * ```javascript
+ * "reporter": ["console", "junit"]
  * ```
  *
  * @class Reporter
