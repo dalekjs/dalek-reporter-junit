@@ -109,7 +109,7 @@ module.exports = function (grunt) {
     // archive docs
     archive: {
       options: {
-        files: ['html.html']
+        files: ['junit.html']
       }
     },
 
