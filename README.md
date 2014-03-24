@@ -10,6 +10,9 @@ dalek-reporter-junit
 [![NPM version](https://badge.fury.io/js/dalek-reporter-junit.png)](http://badge.fury.io/js/dalek-reporter-junit)
 [![Coverage](http://dalekjs.com/package/dalek-reporter-junit/master/coverage/coverage.png)](http://dalekjs.com/package/dalek-reporter-junit/master/coverage/index.html)
 [![unstable](https://rawgithub.com/hughsk/stability-badges/master/dist/unstable.svg)](http://github.com/hughsk/stability-badges)
+[![Stories in Ready](https://badge.waffle.io/dalekjs/dalek-reporter-junit.png?label=ready)](https://waffle.io/dalekjs/dalek-reporter-junit)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dalekjs/dalek-reporter-junit/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 [![NPM](https://nodei.co/npm/dalek-reporter-junit.png)](https://nodei.co/npm/dalek-reporter-junit/)
 [![NPM](https://nodei.co/npm-dl/dalek-reporter-junit.png)](https://nodei.co/npm/dalek-reporter-junit/)
@@ -106,8 +109,3 @@ Google Groups mailing list.
 Copyright (c) 2013 Sebastian Golasch
 
 Distributed under [MIT license](https://github.com/dalekjs/dalek-reporter-junit/blob/master/LICENSE-MIT)
-
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dalekjs/dalek-reporter-junit/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
