@@ -100,6 +100,7 @@ function Reporter (opts) {
   this.variationCount = -1;
   this.data = {};
   this.data.tests = [];
+  this.lastAssertion = {};
   this.browser = null;
 
   var defaultReportFolder = 'report';
@@ -196,7 +197,15 @@ Reporter.prototype = {
    */
 
   testsuiteFinished: function () {
-    this.xml[0].children[this.testIdx].attrs.end = Math.round(new Date().getTime() / 1000);
+    var timestamp = Math.round(new Date().getTime() / 1000);
+    this.xml[0].children[this.testIdx].children[this.testCount].attrs.end = timestamp;
+    this.xml[0].children[this.testIdx].children[this.testCount].attrs.result = this.lastAssertion.success ? 'Passed' : 'Failed';
+
+    if (this.variationCount > -1) {
+      this.xml[0].children[this.testIdx].children[this.testCount].children[this.variationCount].attrs.end = timestamp;
+    }
+    
+    this.xml[0].children[this.testIdx].attrs.end = timestamp;
     return this;
   },
 
