@@ -237,6 +237,7 @@ Reporter.prototype = {
       this.xml[0].children[this.testIdx].children[this.testCount].children[this.variationCount].attrs.end = timestamp;
     }
 
+    this.lastAssertion = data;
     this.variationCount++;
     return this;
   },
