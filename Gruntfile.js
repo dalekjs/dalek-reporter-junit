@@ -131,7 +131,7 @@ module.exports = function(grunt) {
   'use strict';
 
     // releases a new canary build
-  grunt.registerTask('release-canary', function () {
+  grunt.registerTask('release-canary-debug', function () {
     var done = this.async();
     var pkg = grunt.config.get('pkg');
     var canaryPkg = grunt.util._.clone(pkg);
