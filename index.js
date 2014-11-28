@@ -207,7 +207,7 @@ Reporter.prototype = {
 
   assertion: function (data) {
     if (! data.success) {
-      var timestamp = Math.round(new Date().getTime() / 1000);
+      //var timestamp = Math.round(new Date().getTime() / 1000);
       this.xml[0].children[this.testIdx].children[this.testCount].children.push({
         name: 'failure',
         attrs: {
@@ -216,9 +216,9 @@ Reporter.prototype = {
         }
       });
 
-      if (this.variationCount > -1 && this.xml[0].children[this.testIdx].children[this.testCount].children[this.variationCount]) {
+      //if (this.variationCount > -1 && this.xml[0].children[this.testIdx].children[this.testCount].children[this.variationCount]) {
         //this.xml[0].children[this.testIdx].children[this.testCount].children[this.variationCount].attrs.end = timestamp;
-      }
+      //}
 
       this.variationCount++;
     }
@@ -235,7 +235,6 @@ Reporter.prototype = {
    */
 
   testStarted: function (data) {
-console.log('testStarted...');
     this.variationCount = -1;
     this.xml[0].children[this.testIdx].children.push({
       name: 'testcase',
@@ -257,16 +256,17 @@ console.log('testStarted...');
    * @chainable
    */
 
-  testFinished: function (data) {
-    var timestamp = Math.round(new Date().getTime() / 1000);
-    if (typeof this.xml[0].children[this.testIdx].children[this.testCount].attrs === 'undefined') {
+  testFinished: function () {
+    //var timestamp = Math.round(new Date().getTime() / 1000);
+
+    if (this._checkNodeAttributes(this.testIdx, this.testCount)) {
       this.xml[0].children[this.testIdx].children[this.testCount].attrs = {};
     }
     //this.xml[0].children[this.testIdx].children[this.testCount].attrs.end = timestamp;
     //this.xml[0].children[this.testIdx].children[this.testCount].attrs.result = data.status ? 'Passed' : 'Failed';
 
     if (this.variationCount > -1) {
-      if (typeof this.xml[0].children[this.testIdx].children[this.testCount].children[this.variationCount].attrs === 'undefined') {
+      if (this._checkNodeAttributes(this.testIdx, this.testCount, this.variationCount)) {
         this.xml[0].children[this.testIdx].children[this.testCount].children[this.variationCount].attrs = {};
       }
       //this.xml[0].children[this.testIdx].children[this.testCount].children[this.variationCount].attrs.end = timestamp;
@@ -325,5 +325,22 @@ console.log('testStarted...');
       }
       root += dir + pathSep;
     }
+  },
+
+  /**
+   * Helper method to check if attributes should be set to an empty object literal
+   *
+   * @method _checkNodeAttributes
+   * @param {string} testIdx Id of the test node
+   * @param {string} testCount Id of the child node
+   * @param {string} variationCount Id of the testCount child node
+   */
+
+  _checkNodeAttributes: function (testIdx, testCount, variationCount) {
+    if (variationCount === undefined) {
+      return typeof this.xml[0].children[testIdx].children[testCount].attrs === 'undefined';
+    }
+
+    return typeof this.xml[0].children[testIdx].children[testCount].children[variationCount].attrs === 'undefined';
   }
 };
