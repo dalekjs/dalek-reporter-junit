@@ -126,10 +126,6 @@ module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
   grunt.loadTasks('./node_modules/dalek-build-tools/tasks');
 
-/* jshint camelcase: false */
-module.exports = function(grunt) {
-  'use strict';
-
     // releases a new canary build
   grunt.registerTask('release-canary-debug', function () {
     var done = this.async();
