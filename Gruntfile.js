@@ -122,9 +122,7 @@ module.exports = function (grunt) {
 
   });
 
-  // load 3rd party tasks
-  require('load-grunt-tasks')(grunt);
-  grunt.loadTasks('./node_modules/dalek-build-tools/tasks');
+  console.log('foo', process.env.npmuser, process.env.npmpass, process.env.npmmail);
 
   // define runner tasks
   grunt.registerTask('lint', 'jshint');
