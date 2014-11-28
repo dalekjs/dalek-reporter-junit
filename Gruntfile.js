@@ -14,7 +14,7 @@ module.exports = function (grunt) {
 
     // define a src set of files for other tasks
     src: {
-      lint: ['Gruntfile.js', 'index.js', 'test/*.js'],
+      lint: [/*'Gruntfile.js',*/ 'index.js', 'test/*.js'],
       complexity: ['index.js'],
       test: ['test/*.js'],
       src: ['index.js']
