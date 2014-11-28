@@ -30,7 +30,7 @@
     "chai": "1.10.0",
     "load-grunt-tasks": "1.0.0",
     "time-grunt": "1.0.0",
-    "dalek-build-tools": "0.0.2"
+    "dalek-build-tools": "https://github.com/dalekjs/dalek-build-tools.git#master"
   },
   "scripts": {
     "test": "grunt test"
