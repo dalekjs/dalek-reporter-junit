@@ -189,8 +189,6 @@ module.exports = function (grunt) {
     });
   });
 
-};
-
 
   // define runner tasks
   grunt.registerTask('lint', 'jshint');
