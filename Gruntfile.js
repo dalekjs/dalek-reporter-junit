@@ -14,7 +14,7 @@ module.exports = function (grunt) {
 
     // define a src set of files for other tasks
     src: {
-      lint: [/*'Gruntfile.js',*/ 'index.js', 'test/*.js'],
+      lint: ['Gruntfile.js', 'index.js', 'test/*.js'],
       complexity: ['index.js'],
       test: ['test/*.js'],
       src: ['index.js']
@@ -122,7 +122,9 @@ module.exports = function (grunt) {
 
   });
 
-  console.log('foo', process.env.npmuser, process.env.npmpass, process.env.npmmail);
+  // load 3rd party tasks
+  require('load-grunt-tasks')(grunt);
+  grunt.loadTasks('./node_modules/dalek-build-tools/tasks');
 
   // define runner tasks
   grunt.registerTask('lint', 'jshint');
